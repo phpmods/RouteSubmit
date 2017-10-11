@@ -147,7 +147,7 @@
             
                      <?php
             
-                     //Put this in a seperate template. Shows the Custom Fields for registration
+                     //Put this in a seperate template. Shows the Custom Fields for form
                      Template::Show('routesubmit/routesubmit_customfields.php');
             
                      ?>
