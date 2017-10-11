@@ -17,10 +17,10 @@
             if(isset($_POST['submit'])) {
 			$this->SendEmail();
 		    } else {
-		        $this->ShowForm();
+		    $this->ShowForm();
 		    }
 
-            $this->render('routesubmit/RouteSubmit.php');
+            $this->render('routesubmit/routesubmit_mainform.php');
             
         }
         
@@ -28,24 +28,24 @@
 	    {
                 //Google reCaptcha
                 //updated to Google noCaptcha 1/15
-                $this->set('sitekey', RECAPTCHA_PUBLIC_KEY);
-                $this->set('lang', 'en');
-
+                $this->set('sitekey', "RECAPTCHA_PUBLIC_KEY");
+                $this->set('lang', 'pt');
+                
 	    }
-
+	    
         
         public function SendEmail()
         {
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $depp = $_POST['depp'];
-            $arr = $_POST['arr'];
-            $route = $_POST['route'];
-            $aircraft = $_POST['Aircraft'];
-            $fl = $_POST['fl'];
-            $dtime = $_POST['dtime'];
-            $atime = $_POST['atime'];
-            $ftime = $_POST['ftime'];
+            $name = $this->post->name;
+            $email_to = $this->post->email;
+            $depp = $this->post->depp;
+            $arr = $this->post->arr;
+            $route = $this->post->route;
+            $Aircraft = $this->post->Aircraft;
+            $fl = $this->post->fl;
+            $dtime = $this->post->dtime;
+            $atime = $this->post->atime;
+            $ftime = $this->post->ftime;
             $message = "From: $name \n 
                         Depp: $depp \n 
                         Arr: $arr \n 
@@ -56,11 +56,10 @@
                         Atime: $atime \n 
                         Ftime: $ftime \n";
                         
-            $email_to = "cadu@f72.com.br";
+            $email = "MyEMAIL";
             $subject = "Pilot Submitted Route";
-            $headers = "From: $email \r\n";
-            Util::SendEmail($email_to, $subject, $message, $mailheader);
-           echo "Thank You!"." -"."<a href='http://teste-ccbsvirtual.000webhostapp.com/index.php' style='text-decoration:none;color:#ff0099;'> Return Home</a>";
+            $headers = "From: $email_to \r\n";
+            Util::SendEmail($email, $subject, $message, $headers);
         }
 		
 }
