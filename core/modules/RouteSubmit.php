@@ -60,6 +60,7 @@
             $subject = "Pilot Submitted Route";
             $headers = "From: $email_to \r\n";
             Util::SendEmail($email, $subject, $message, $headers);
+		echo "Your mail has been sent successfuly ! Thank you for your route submit";
         }
 		
 }
