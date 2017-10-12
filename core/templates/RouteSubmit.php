@@ -1,6 +1,6 @@
 <?php if(!defined('IN_PHPVMS') && IN_PHPVMS !== true) { die(); } ?>
 <body class="hold-transition login-page" style="background-color: #222222;">
-    <form action="<?php echo url('/RouteSubmit/SendEmail');?>" method="post">
+    <form action="<?php echo url('/RouteSubmit');?>" method="post">
 <div class="login-box">
          <div class="login-logo">
                  <a href="" style="color: white;">Route<b>Submit</b></a>
